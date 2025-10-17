@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mercy Chelangat Koech - Portfolio </title>
+    <title>Mercy Chelangat Koech - Portfolio</title>
     <style>
         * {
             margin: 0;
@@ -12,13 +12,13 @@
         }
 
         :root {
-            --primary: #2563eb;
-            --secondary: #1e40af;
-            --accent: #3b82f6;
+            --primary: #059669;
+            --secondary: #10b981;
+            --accent: #34d399;
             --text: #1f2937;
             --text-light: #6b7280;
             --bg: #ffffff;
-            --bg-secondary: #f9fafb;
+            --bg-secondary: #f0fdf4;
             --border: #e5e7eb;
         }
 
@@ -29,12 +29,11 @@
             background: var(--bg);
         }
 
-        /* Navigation */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
             z-index: 1000;
@@ -73,17 +72,16 @@
             color: var(--primary);
         }
 
-        /* Hero Section */
         .hero {
             margin-top: 80px;
             padding: 4rem 2rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
             color: white;
             text-align: center;
         }
 
         .hero-content {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
@@ -99,13 +97,23 @@
 
         .hero h1 {
             font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .subtitle {
+            font-size: 1.4rem;
             margin-bottom: 1rem;
+            opacity: 0.95;
+            font-weight: 500;
         }
 
         .hero .tagline {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             margin-bottom: 2rem;
-            opacity: 0.95;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .cta-buttons {
@@ -145,7 +153,6 @@
             color: var(--primary);
         }
 
-        /* Sections */
         section {
             padding: 4rem 2rem;
             max-width: 1200px;
@@ -170,7 +177,6 @@
             font-size: 1.1rem;
         }
 
-        /* About Section */
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -187,11 +193,41 @@
             margin-bottom: 1rem;
         }
 
+        .info-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .info-box h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .info-item {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .info-item strong {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
         .skills {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
-            margin-top: 2rem;
+            margin-top: 1rem;
         }
 
         .skill-tag {
@@ -202,10 +238,46 @@
             font-size: 0.9rem;
         }
 
-        /* Projects Grid */
+        .experience-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .experience-item {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+
+        .experience-item h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-meta {
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .experience-item ul {
+            margin-left: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .experience-item li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
         }
 
@@ -224,13 +296,13 @@
 
         .project-img {
             width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 180px;
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 3rem;
+            font-size: 3.5rem;
         }
 
         .project-content {
@@ -257,31 +329,9 @@
             color: var(--text-light);
         }
 
-        /* Publications */
-        .publication-item {
-            background: white;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            border-radius: 12px;
-            border-left: 4px solid var(--primary);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .publication-item h3 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .publication-meta {
-            color: var(--text-light);
-            font-style: italic;
-            margin-bottom: 1rem;
-        }
-
-        /* Awards */
         .awards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
 
@@ -291,6 +341,11 @@
             border-radius: 12px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .award-card:hover {
+            transform: translateY(-5px);
         }
 
         .award-icon {
@@ -301,17 +356,17 @@
         .award-card h3 {
             color: var(--primary);
             margin-bottom: 0.5rem;
+            font-size: 1.2rem;
         }
 
-        /* Contact Section */
         .contact-content {
-            max-width: 600px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
         .contact-links {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 1.5rem;
             margin-top: 2rem;
         }
@@ -339,7 +394,6 @@
             font-size: 2rem;
         }
 
-        /* Footer */
         footer {
             background: var(--text);
             color: white;
@@ -347,115 +401,247 @@
             padding: 2rem;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             nav ul {
-                flex-direction: column;
-                gap: 1rem;
+                display: none;
             }
 
             .hero h1 {
                 font-size: 2rem;
             }
 
-            .about-content {
-                grid-template-columns: 1fr;
+            .hero .subtitle {
+                font-size: 1.2rem;
             }
 
-            .cta-buttons {
-                flex-direction: column;
+            .about-content {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
         <div class="container">
-            <div class="logo">YourName</div>
+            <div class="logo">Mercy C. Koech</div>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#publications">Publications</a></li>
                 <li><a href="#awards">Awards</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <img src="https://via.placeholder.com/180" alt="Your Photo" class="profile-img">
-            <h1>Your Name</h1>
-            <p class="tagline">Researcher | Developer | Innovator</p>
-            <p style="max-width: 600px; margin: 0 auto 2rem;">
-                Brief introduction about yourself. What drives you? What are you passionate about? 
-                Share your mission and vision in a compelling way.
+            <img src="https://via.placeholder.com/180" alt="Mercy Chelangat Koech" class="profile-img">
+            <h1>Mercy Chelangat Koech</h1>
+            <p class="subtitle">PhD Candidate in Electrical Engineering | Renewable Energy Researcher</p>
+            <p class="tagline">
+                Passionate about advancing renewable energy, sustainable transportation, and power systems technologies. 
+                Driving innovation in electric propulsion systems, grid modernization, and electrification strategies 
+                to combat climate change and enable sustainable development.
             </p>
             <div class="cta-buttons">
                 <a href="#contact" class="btn btn-primary">Get in Touch</a>
-                <a href="your-cv.pdf" class="btn btn-secondary" download>Download CV</a>
+                <a href="mercy-koech-cv.pdf" class="btn btn-secondary" download>Download CV</a>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about">
         <h2>About Me</h2>
-        <p class="section-subtitle">My journey, background, and expertise</p>
+        <p class="section-subtitle">PhD Candidate | Researcher | Change-Maker</p>
         <div class="about-content">
             <div class="bio">
                 <h3>Biography</h3>
                 <p>
-                    Write your detailed biography here. Share your educational background, 
-                    professional experience, and what makes you unique. Talk about your research 
-                    interests, career goals, and professional journey.
+                    I am a final-year PhD candidate in Electrical Engineering at the University of Texas at Dallas, 
+                    specializing in the sustainability of electric propulsion systems and electrified transportation. 
+                    My research focuses on lifecycle analysis approaches to optimize energy consumption and enhance 
+                    the performance of energy-efficient electric vehicles.
                 </p>
                 <p>
-                    Highlight your key accomplishments, areas of expertise, and what you're 
-                    currently working on. Make it personal and engaging.
+                    With over 5 years of experience in renewable energy systems, I've led strategic consulting, 
+                    research, and global innovation initiatives across Africa and the United States. My work spans 
+                    power systems analysis, microgrid development, electric vehicle integration, and sustainable 
+                    energy solutions that drive real-world impact.
                 </p>
                 <p>
-                    Include your educational qualifications, certifications, and any other 
-                    relevant information that showcases your expertise.
+                    As a Graduate Research Intern at Oak Ridge National Laboratory (Summer 2025), I contributed to 
+                    the design and optimization of rare-earth-free electric motor technologies for medium and heavy-duty 
+                    electric vehicles, supporting DOE initiatives in sustainable transportation and critical materials 
+                    resilience. I have also served as Business and Fund Development Director for IEEE Smart Village, 
+                    where I secured over $100K in funding for solar microgrid projects impacting healthcare, agriculture, 
+                    and tourism sectors across East Africa.
+                </p>
+                <p>
+                    I am deeply committed to using engineering and innovation to address climate change, advance 
+                    electrification, and create sustainable solutions that empower communities globally.
                 </p>
             </div>
             <div>
-                <h3>Research Interests</h3>
-                <p style="margin-bottom: 1rem;">
-                    Describe your research areas and what excites you about your field. 
-                    What problems are you trying to solve?
-                </p>
-                <div class="skills">
-                    <span class="skill-tag">Research Area 1</span>
-                    <span class="skill-tag">Research Area 2</span>
-                    <span class="skill-tag">Research Area 3</span>
-                    <span class="skill-tag">Skill 1</span>
-                    <span class="skill-tag">Skill 2</span>
-                    <span class="skill-tag">Skill 3</span>
-                    <span class="skill-tag">Technology 1</span>
-                    <span class="skill-tag">Technology 2</span>
+                <div class="info-box">
+                    <h3>Education</h3>
+                    <div class="info-item">
+                        <strong>PhD in Electrical Engineering</strong>
+                        University of Texas at Dallas<br>
+                        2023 - 2026 | GPA: 3.55/4.00
+                    </div>
+                    <div class="info-item">
+                        <strong>Master's in Development Practice</strong>
+                        Regis University<br>
+                        2020 - 2022
+                    </div>
+                    <div class="info-item">
+                        <strong>BEng in Electrical & Electronic Engineering</strong>
+                        Moi University, Kenya<br>
+                        2012 - 2017 | 2nd Class Upper Honors
+                    </div>
+                </div>
+
+                <div class="info-box" style="margin-top: 2rem;">
+                    <h3>Research Interests</h3>
+                    <p style="margin-bottom: 1rem;">
+                        Sustainability of electric propulsion systems, lifecycle analysis, renewable energy integration, 
+                        power electronics, electric machine design, grid modernization, and energy efficiency optimization.
+                    </p>
+                    <div class="skills">
+                        <span class="skill-tag">Electric Vehicles</span>
+                        <span class="skill-tag">Renewable Energy</span>
+                        <span class="skill-tag">Power Systems</span>
+                        <span class="skill-tag">Microgrids</span>
+                        <span class="skill-tag">FEA Analysis</span>
+                        <span class="skill-tag">MATLAB/Simulink</span>
+                        <span class="skill-tag">ANSYS</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Power Electronics</span>
+                        <span class="skill-tag">Sustainability</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" style="background: var(--bg-secondary);">
-        <h2>Projects</h2>
-        <p class="section-subtitle">Showcasing my work and contributions</p>
+    <section id="experience" style="background: var(--bg-secondary);">
+        <h2>Experience</h2>
+        <p class="section-subtitle">Building a sustainable energy future</p>
+        <div class="experience-timeline">
+            <div class="experience-item">
+                <h3>Graduate Research Intern</h3>
+                <p class="experience-meta">Oak Ridge National Laboratory | May - August 2025 | Knoxville, Tennessee</p>
+                <ul>
+                    <li>Contributed to the design and optimization of rare-earth-free electric motor technologies for medium and heavy-duty EVs (380kW, 5000-10,000 rpm), supporting DOE sustainable transportation initiatives</li>
+                    <li>Conducted electromagnetic modeling, thermal analysis, and material benchmarking using ANSYS Maxwell, Fluent, and Workbench</li>
+                    <li>Authored extensive literature review and gap analysis on AI/ML applications in electric machine design and optimization</li>
+                    <li>Developed simulation workflows and design parameter trade-offs for OEM-focused motor design decisions</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Research & Teaching Assistant</h3>
+                <p class="experience-meta">Renewable Energy and Vehicular Technology Lab, UT Dallas | 2023 - Present</p>
+                <ul>
+                    <li>Supported research on grid-connected electric propulsion systems and lifecycle analysis modeling of power electronics</li>
+                    <li>Conducted literature reviews on power electronics, renewable energy, and electrified transportation technologies</li>
+                    <li>Documented experimental procedures and prepared research reports for conferences and seminars</li>
+                    <li>Teaching Assistant for ECE Fundamentals Lab covering transformers, power electronics, control systems</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Business and Fund Development Director</h3>
+                <p class="experience-meta">IEEE Smart Village | 2019 - 2022 | Hybrid</p>
+                <ul>
+                    <li>Secured over $100K in funding for solar microgrid projects across Africa through strategic proposal development</li>
+                    <li>Consulted on microgrid and EV integration projects supporting electrification in healthcare, agriculture, and tourism sectors</li>
+                    <li>Developed 13kW+ systems serving IT training hubs, irrigation farms, telehealth centers, and community facilities</li>
+                    <li>Led research on integrating electric vehicles into off-grid solar microgrids for sustainable mobility</li>
+                    <li>Managed project databases and improved operational reporting accuracy by 35%</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Rural Projects Development Officer</h3>
+                <p class="experience-meta">Industrial Promotion Services (Aga Khan Development Network) | Sept 2017 - Mar 2018</p>
+                <ul>
+                    <li>Conducted techno-economic analyses of solar microgrids assessing system cost, payback period, and ROI</li>
+                    <li>Performed energy audits and feasibility studies for renewable energy technologies and EV charging infrastructure</li>
+                    <li>Facilitated capacity-building support for agribusiness opportunities within the AKDN consortium</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Research & Projects</h2>
+        <p class="section-subtitle">Innovation in action</p>
         <div class="projects-grid">
             <div class="project-card">
-                <div class="project-img">🚀</div>
+                <div class="project-img">⚡</div>
                 <div class="project-content">
-                    <h3>Project Title 1</h3>
-                    <p>Brief description of your project. What problem does it solve? What technologies did you use?</p>
+                    <h3>Flyback Converter for Solar Off-Grid Systems</h3>
+                    <p>Designed and simulated a step-up flyback converter for solar panels for off-grid electrification. Used MATLAB Simulink, PLECS, and LTSpice for modeling, voltage/current waveform analysis, efficiency calculations, and component sizing.</p>
                     <div class="project-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">Machine Learning</span>
-                        <span class="tag">Research</span>
+                        <span class="tag">Power Electronics</span>
+                        <span class="tag">MATLAB</span>
+                        <span class="tag">Solar Energy</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-img">🔌</div>
+                <div class="project-content">
+                    <h3>Interior Permanent Magnet Synchronous Motor Design</h3>
+                    <p>Designed, simulated, and analyzed an IPMSM using Ansys Maxwell, Workbench, and Fluent to study electromagnetic, thermal, and structural behavior. Optimized magnet size using genetic algorithms for cost-effectiveness and sustainability.</p>
+                    <div class="project-tags">
+                        <span class="tag">Electric Machines</span>
+                        <span class="tag">ANSYS</span>
+                        <span class="tag">FEA</span>
+                        <span class="tag">Optimization</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-img">🌍</div>
+                <div class="project-content">
+                    <h3>Solar Microgrids for Rural Africa</h3>
+                    <p>Developed 13kW+ solar microgrid systems serving IT training hubs, irrigation farms, telehealth centers, and communities across Kenya, Cameroon, Tanzania, and Zambia. Impacted 5,000+ people through sustainable electrification.</p>
+                    <div class="project-tags">
+                        <span class="tag">Microgrids</span>
+                        <span class="tag">Renewable Energy</span>
+                        <span class="tag">Community Impact</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-img">🚗</div>
+                <div class="project-content">
+                    <h3>EV Integration with Off-Grid Solar Systems</h3>
+                    <p>Conducted research on integrating electric vehicles into off-grid solar microgrid systems in Cameroon. Explored sustainable mobility solutions and energy management strategies for rural transportation electrification.</p>
+                    <div class="project-tags">
+                        <span class="tag">Electric Vehicles</span>
+                        <span class="tag">Microgrids</span>
+                        <span class="tag">Energy Management</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-img">🎓</div>
+                <div class="project-content">
+                    <h3>TechGaa Hub - Digital Education Initiative</h3>
+                    <p>Founded community-based organization promoting digital education in rural Kenya. Hosted 15+ expert interviews on electrification, emerging technologies, and climate solutions. Advocating for renewable energy and digital equity.</p>
+                    <div class="project-tags">
+                        <span class="tag">Education</span>
+                        <span class="tag">Community Engagement</span>
+                        <span class="tag">Climate Action</span>
                     </div>
                 </div>
             </div>
@@ -463,177 +649,139 @@
             <div class="project-card">
                 <div class="project-img">💡</div>
                 <div class="project-content">
-                    <h3>Project Title 2</h3>
-                    <p>Brief description of your project. Highlight the impact and outcomes of your work.</p>
+                    <h3>IoT-Based Smart Energy Meter</h3>
+                    <p>Developed an IoT-based electric smart meter with integrated cost-efficient monitoring system for energy use as undergraduate final project. Focused on real-time energy tracking and optimization for residential applications.</p>
                     <div class="project-tags">
-                        <span class="tag">Data Science</span>
-                        <span class="tag">Analytics</span>
-                        <span class="tag">Visualization</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-img">🎯</div>
-                <div class="project-content">
-                    <h3>Project Title 3</h3>
-                    <p>Brief description of your project. Share the key findings and contributions.</p>
-                    <div class="project-tags">
-                        <span class="tag">Web Development</span>
-                        <span class="tag">JavaScript</span>
-                        <span class="tag">API</span>
+                        <span class="tag">IoT</span>
+                        <span class="tag">Energy Management</span>
+                        <span class="tag">Smart Grid</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Publications Section -->
-    <section id="publications">
-        <h2>Publications</h2>
-        <p class="section-subtitle">My research contributions and academic work</p>
-        
-        <div class="publication-item">
-            <h3>Paper Title Goes Here</h3>
-            <p class="publication-meta">Authors: Your Name, Co-Author 1, Co-Author 2 | Journal/Conference Name | Year</p>
-            <p>
-                Brief abstract or description of the publication. What was the research about? 
-                What were the key findings? Include a link to the full paper if available.
-            </p>
-        </div>
-
-        <div class="publication-item">
-            <h3>Another Publication Title</h3>
-            <p class="publication-meta">Authors: Your Name, Co-Authors | Journal/Conference Name | Year</p>
-            <p>
-                Brief abstract or description of the publication. Highlight the significance 
-                and impact of your research work.
-            </p>
-        </div>
-
-        <div class="publication-item">
-            <h3>Third Publication Title</h3>
-            <p class="publication-meta">Authors: Your Name, Co-Authors | Journal/Conference Name | Year</p>
-            <p>
-                Brief abstract or description of the publication. Share the methodology 
-                and key contributions of this work.
-            </p>
-        </div>
-    </section>
-
-    <!-- Awards Section -->
     <section id="awards" style="background: var(--bg-secondary);">
-        <h2>Awards & Achievements</h2>
-        <p class="section-subtitle">Recognition and accomplishments</p>
+        <h2>Awards & Recognition</h2>
+        <p class="section-subtitle">Honored for leadership and impact</p>
         <div class="awards-grid">
             <div class="award-card">
                 <div class="award-icon">🏆</div>
-                <h3>Award Title</h3>
-                <p>Organization Name</p>
-                <p style="color: var(--text-light); margin-top: 0.5rem;">Year</p>
-                <p style="margin-top: 1rem; font-size: 0.95rem;">Brief description of the award and what it recognizes.</p>
-            </div>
-
-            <div class="award-card">
-                <div class="award-icon">🎖️</div>
-                <h3>Achievement Title</h3>
-                <p>Organization Name</p>
-                <p style="color: var(--text-light); margin-top: 0.5rem;">Year</p>
-                <p style="margin-top: 1rem; font-size: 0.95rem;">Brief description of the achievement and its significance.</p>
+                <h3>IEEE EAB Life Member Graduate Study Fellowship</h3>
+                <p>IEEE Educational Activities Board</p>
+                <p style="color: var(--text-light); margin-top: 0.5rem;">2024 - 2026</p>
+                <p style="margin-top: 1rem; font-size: 0.95rem;">Recognizing exceptional achievements in the engineering community and commitment to advancing the profession.</p>
             </div>
 
             <div class="award-card">
                 <div class="award-icon">⭐</div>
-                <h3>Recognition Title</h3>
-                <p>Organization Name</p>
-                <p style="color: var(--text-light); margin-top: 0.5rem;">Year</p>
-                <p style="margin-top: 1rem; font-size: 0.95rem;">Brief description of the recognition received.</p>
+                <h3>IEEE WiE Inspiring Member of the Year</h3>
+                <p>IEEE Women in Engineering</p>
+                <p style="color: var(--text-light); margin-top: 0.5rem;">2021</p>
+                <p style="margin-top: 1rem; font-size: 0.95rem;">Honorable mention for empowering rural communities through electrification to achieve socioeconomic sustainability.</p>
             </div>
 
             <div class="award-card">
                 <div class="award-icon">🌟</div>
-                <h3>Honor Title</h3>
-                <p>Organization Name</p>
-                <p style="color: var(--text-light); margin-top: 0.5rem;">Year</p>
-                <p style="margin-top: 1rem; font-size: 0.95rem;">Brief description of the honor and what it represents.</p>
+                <h3>IEEE WiE Clementina Saduwa Award</h3>
+                <p>IEEE Women in Engineering</p>
+                <p style="color: var(--text-light); margin-top: 0.5rem;">2019</p>
+                <p style="margin-top: 1rem; font-size: 0.95rem;">For noteworthy support for women in the engineering profession and dedication to promoting diversity in STEM.</p>
+            </div>
+        </div>
+
+        <div style="margin-top: 4rem;">
+            <h3 style="text-align: center; color: var(--primary); margin-bottom: 2rem;">Leadership & Volunteering</h3>
+            <div class="experience-timeline">
+                <div class="experience-item">
+                    <h3>PES Climate Change & Sustainability Member at Large</h3>
+                    <p class="experience-meta">IEEE Power & Energy Society | 2023 - 2024</p>
+                    <p>Led committee initiatives focused on sustainable energy and climate action, driving projects to mitigate climate change impacts.</p>
+                </div>
+
+                <div class="experience-item">
+                    <h3>Global Chair, IEEE PES Day</h3>
+                    <p class="experience-meta">IEEE Power & Energy Society | 2022</p>
+                    <p>Led 700 volunteers from 52 countries and 72 sections to conduct educational activities promoting power and energy engineering worldwide.</p>
+                </div>
+
+                <div class="experience-item">
+                    <h3>Students & Young Professionals Chair</h3>
+                    <p class="experience-meta">IEEE Dallas Section | 2024 - Present</p>
+                    <p>Organizing STEM events to promote engagement in the professional and academic engineering community.</p>
+                </div>
+
+                <div class="experience-item">
+                    <h3>IEEE Smart Village Marketing Committee Chair</h3>
+                    <p class="experience-meta">IEEE Smart Village | 2020 - 2022</p>
+                    <p>Improved project visibility by 300%. Managed comprehensive databases for 35+ projects, monitoring impact and fundraising efforts.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Volunteering Section -->
-    <section id="volunteering">
-        <h2>Volunteering & Community</h2>
-        <p class="section-subtitle">Giving back and making an impact</p>
-        
-        <div class="publication-item">
-            <h3>Volunteer Organization 1</h3>
-            <p class="publication-meta">Role: Your Position | Duration: Start - End</p>
-            <p>
-                Describe your volunteering experience. What did you do? What impact did you make? 
-                What skills did you develop or use?
-            </p>
-        </div>
-
-        <div class="publication-item">
-            <h3>Community Initiative 2</h3>
-            <p class="publication-meta">Role: Your Position | Duration: Start - End</p>
-            <p>
-                Share another volunteering or community service experience. Highlight the 
-                outcomes and your contributions.
-            </p>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" style="background: var(--bg-secondary);">
+    <section id="contact">
         <h2>Get In Touch</h2>
-        <p class="section-subtitle">Let's connect and collaborate</p>
+        <p class="section-subtitle">Let's collaborate on sustainable energy solutions</p>
         <div class="contact-content">
             <p style="text-align: center; margin-bottom: 2rem;">
-                I'm always open to discussing new opportunities, collaborations, or just having 
-                a conversation about research and innovation. Feel free to reach out!
+                I'm always open to discussing research collaborations, speaking opportunities, consulting projects, 
+                or career opportunities in renewable energy, electric vehicles, and sustainable technology. 
+                Let's connect and create positive impact together!
             </p>
             <div class="contact-links">
-                <a href="mailto:your.email@example.com" class="contact-link">
+                <a href="mailto:mercykoech@utdallas.edu" class="contact-link">
                     <span class="contact-icon">📧</span>
                     <div>
-                        <strong>Email</strong><br>
-                        <small>your.email@example.com</small>
+                        <strong>Email (Primary)</strong><br>
+                        <small>mercykoech@utdallas.edu</small>
                     </div>
                 </a>
-                <a href="https://linkedin.com/in/yourprofile" target="_blank" class="contact-link">
+                <a href="mailto:chelangat_ke@ieee.org" class="contact-link">
+                    <span class="contact-icon">📧</span>
+                    <div>
+                        <strong>IEEE Email</strong><br>
+                        <small>chelangat_ke@ieee.org</small>
+                    </div>
+                </a>
+                <a href="https://www.linkedin.com/in/mkoech" target="_blank" class="contact-link">
                     <span class="contact-icon">💼</span>
                     <div>
                         <strong>LinkedIn</strong><br>
-                        <small>/in/yourprofile</small>
+                        <small>linkedin.com/in/mkoech</small>
                     </div>
                 </a>
-                <a href="https://github.com/yourusername" target="_blank" class="contact-link">
-                    <span class="contact-icon">💻</span>
+                <a href="https://www.facebook.com/mercy.w.chelangat" target="_blank" class="contact-link">
+                    <span class="contact-icon">👥</span>
                     <div>
-                        <strong>GitHub</strong><br>
-                        <small>@yourusername</small>
+                        <strong>Facebook</strong><br>
+                        <small>mercy.w.chelangat</small>
                     </div>
                 </a>
-                <a href="https://twitter.com/yourhandle" target="_blank" class="contact-link">
+                <a href="https://twitter.com/chelah_reez" target="_blank" class="contact-link">
                     <span class="contact-icon">🐦</span>
                     <div>
                         <strong>Twitter</strong><br>
-                        <small>@yourhandle</small>
+                        <small>@chelah_reez</small>
+                    </div>
+                </a>
+                <a href="https://labs.utdallas.edu/revt/" target="_blank" class="contact-link">
+                    <span class="contact-icon">🔬</span>
+                    <div>
+                        <strong>Research Lab</strong><br>
+                        <small>UT Dallas REVT Lab</small>
                     </div>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Your Name. All rights reserved.</p>
-        <p style="margin-top: 0.5rem; opacity: 0.8;">Built with passion and dedication</p>
+        <p>&copy; 2025 Mercy Chelangat Koech. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; opacity: 0.8;">Advancing sustainable energy for a better tomorrow</p>
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -647,7 +795,6 @@
             });
         });
 
-        // Add active state to navigation on scroll
         window.addEventListener('scroll', () => {
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('nav a');
