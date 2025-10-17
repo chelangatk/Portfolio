@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mercy Chelangat Koech - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -22,13 +23,47 @@
             --border: #e5e7eb;
         }
 
+        [data-theme="dark"] {
+            --primary: #34d399;
+            --secondary: #10b981;
+            --accent: #059669;
+            --text: #f9fafb;
+            --text-light: #d1d5db;
+            --bg: #111827;
+            --bg-secondary: #1f2937;
+            --border: #374151;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             color: var(--text);
             background: var(--bg);
+            transition: background 0.3s, color 0.3s;
         }
 
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -38,6 +73,11 @@
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
             z-index: 1000;
             padding: 1rem 0;
+            transition: background 0.3s;
+        }
+
+        [data-theme="dark"] nav {
+            background: rgba(17, 24, 39, 0.98);
         }
 
         nav .container {
@@ -58,7 +98,8 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 1.5rem;
+            align-items: center;
         }
 
         nav a {
@@ -66,10 +107,39 @@
             color: var(--text);
             font-weight: 500;
             transition: color 0.3s;
+            font-size: 0.95rem;
         }
 
         nav a:hover {
             color: var(--primary);
+        }
+
+        /* Dark Mode Toggle */
+        .theme-toggle {
+            background: var(--primary);
+            border: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .theme-toggle:hover {
+            background: var(--secondary);
+            transform: scale(1.05);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text);
         }
 
         .hero {
@@ -98,6 +168,7 @@
         .hero h1 {
             font-size: 3rem;
             margin-bottom: 0.5rem;
+            font-weight: 700;
         }
 
         .hero .subtitle {
@@ -168,6 +239,7 @@
             margin-bottom: 1rem;
             color: var(--primary);
             text-align: center;
+            font-weight: 700;
         }
 
         .section-subtitle {
@@ -194,15 +266,20 @@
         }
 
         .info-box {
-            background: white;
+            background: var(--bg);
             padding: 2rem;
             border-radius: 12px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
 
+        [data-theme="dark"] .info-box {
+            background: var(--bg-secondary);
+        }
+
         .info-box h3 {
             color: var(--primary);
             margin-bottom: 1rem;
+            font-weight: 600;
         }
 
         .info-item {
@@ -236,6 +313,11 @@
             padding: 0.5rem 1rem;
             border-radius: 20px;
             font-size: 0.9rem;
+            transition: transform 0.3s;
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-2px);
         }
 
         .experience-timeline {
@@ -244,18 +326,28 @@
         }
 
         .experience-item {
-            background: white;
+            background: var(--bg);
             padding: 2rem;
             margin-bottom: 2rem;
             border-radius: 12px;
             border-left: 4px solid var(--primary);
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
             position: relative;
+            transition: transform 0.3s;
+        }
+
+        .experience-item:hover {
+            transform: translateX(5px);
+        }
+
+        [data-theme="dark"] .experience-item {
+            background: var(--bg-secondary);
         }
 
         .experience-item h3 {
             color: var(--primary);
             margin-bottom: 0.5rem;
+            font-weight: 600;
         }
 
         .experience-meta {
@@ -282,7 +374,7 @@
         }
 
         .project-card {
-            background: white;
+            background: var(--bg);
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -292,6 +384,10 @@
         .project-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        [data-theme="dark"] .project-card {
+            background: var(--bg-secondary);
         }
 
         .project-img {
@@ -305,6 +401,12 @@
             font-size: 3.5rem;
         }
 
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         .project-content {
             padding: 1.5rem;
         }
@@ -312,6 +414,7 @@
         .project-content h3 {
             margin-bottom: 0.5rem;
             color: var(--primary);
+            font-weight: 600;
         }
 
         .project-tags {
@@ -329,6 +432,310 @@
             color: var(--text-light);
         }
 
+        .publication-item {
+            background: var(--bg);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s;
+        }
+
+        .publication-item:hover {
+            transform: translateX(5px);
+        }
+
+        [data-theme="dark"] .publication-item {
+            background: var(--bg-secondary);
+        }
+
+        .publication-item h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .publication-meta {
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .publication-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .pub-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .pub-link:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .gallery-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .video-card {
+            background: var(--bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="dark"] .video-card {
+            background: var(--bg-secondary);
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .video-info {
+            padding: 1.5rem;
+        }
+
+        .video-info h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .blog-card {
+            background: var(--bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        [data-theme="dark"] .blog-card {
+            background: var(--bg-secondary);
+        }
+
+        .blog-img {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-content h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .blog-date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .read-more:hover {
+            color: var(--secondary);
+        }
+
+        .news-timeline {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .news-item {
+            background: var(--bg);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s;
+        }
+
+        .news-item:hover {
+            transform: translateX(5px);
+        }
+
+        [data-theme="dark"] .news-item {
+            background: var(--bg-secondary);
+        }
+
+        .news-date {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--bg);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+
+        [data-theme="dark"] .testimonial-card {
+            background: var(--bg-secondary);
+        }
+
+        .quote-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            opacity: 0.2;
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+        }
+
+        .testimonial-text {
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+
+        .author-info strong {
+            display: block;
+            color: var(--primary);
+        }
+
+        .author-info small {
+            color: var(--text-light);
+        }
+
         .awards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -336,7 +743,7 @@
         }
 
         .award-card {
-            background: white;
+            background: var(--bg);
             padding: 2rem;
             border-radius: 12px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -348,6 +755,10 @@
             transform: translateY(-5px);
         }
 
+        [data-theme="dark"] .award-card {
+            background: var(--bg-secondary);
+        }
+
         .award-icon {
             font-size: 3rem;
             margin-bottom: 1rem;
@@ -357,6 +768,7 @@
             color: var(--primary);
             margin-bottom: 0.5rem;
             font-size: 1.2rem;
+            font-weight: 600;
         }
 
         .contact-content {
@@ -364,11 +776,80 @@
             margin: 0 auto;
         }
 
-        .contact-links {
+        .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
             margin-top: 2rem;
+        }
+
+        .contact-form {
+            background: var(--bg);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        [data-theme="dark"] .contact-form {
+            background: var(--bg-secondary);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .submit-btn:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
         }
 
         .contact-link {
@@ -376,7 +857,7 @@
             align-items: center;
             gap: 1rem;
             padding: 1.5rem;
-            background: white;
+            background: var(--bg);
             border-radius: 12px;
             text-decoration: none;
             color: var(--text);
@@ -390,8 +871,70 @@
             color: var(--primary);
         }
 
+        [data-theme="dark"] .contact-link {
+            background: var(--bg-secondary);
+        }
+
         .contact-icon {
             font-size: 2rem;
+        }
+
+        /* Tabs Styling */
+        .tabs-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        .tab-btn {
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            border: none;
+            border-radius: 8px 8px 0 0;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-light);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .tab-btn:hover {
+            color: var(--primary);
+            background: var(--bg-secondary);
+        }
+
+        .tab-btn.active {
+            color: var(--primary);
+            background: var(--bg-secondary);
+        }
+
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -0.6rem;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
         }
 
         footer {
@@ -401,9 +944,29 @@
             padding: 2rem;
         }
 
+        [data-theme="dark"] footer {
+            background: #0a0f1a;
+        }
+
         @media (max-width: 768px) {
             nav ul {
                 display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--bg);
+                padding: 2rem;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
             }
 
             .hero h1 {
@@ -417,6 +980,10 @@
             .about-content {
                 grid-template-columns: 1fr;
             }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -424,20 +991,23 @@
     <nav>
         <div class="container">
             <div class="logo">Mercy C. Koech</div>
-            <ul>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <ul id="nav-menu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#awards">Awards</a></li>
+                <li><a href="#projects">Projects & Research</a></li>
+                <li><a href="#volunteering">Volunteering</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><button class="theme-toggle" onclick="toggleTheme()">🌙 Dark Mode</button></li>
             </ul>
         </div>
     </nav>
 
     <section id="home" class="hero">
-        <div class="hero-content">
-            <img src="https://via.placeholder.com/180" alt="Mercy Chelangat Koech" class="profile-img">
+        <div class="hero-content fade-in">
+            <!-- INSTRUCTIONS: Replace "profile-photo.jpg" with your actual photo filename after uploading to GitHub -->
+            <img src="profile-photo.jpg" alt="Mercy Chelangat Koech" class="profile-img" onerror="this.src='https://ui-avatars.com/api/?name=Mercy+Koech&size=180&background=059669&color=fff&bold=true'">
             <h1>Mercy Chelangat Koech</h1>
             <p class="subtitle">PhD Candidate in Electrical Engineering | Renewable Energy Researcher</p>
             <p class="tagline">
@@ -474,13 +1044,7 @@
                     As a Graduate Research Intern at Oak Ridge National Laboratory (Summer 2025), I contributed to 
                     the design and optimization of rare-earth-free electric motor technologies for medium and heavy-duty 
                     electric vehicles, supporting DOE initiatives in sustainable transportation and critical materials 
-                    resilience. I have also served as Business and Fund Development Director for IEEE Smart Village, 
-                    where I secured over $100K in funding for solar microgrid projects impacting healthcare, agriculture, 
-                    and tourism sectors across East Africa.
-                </p>
-                <p>
-                    I am deeply committed to using engineering and innovation to address climate change, advance 
-                    electrification, and create sustainable solutions that empower communities globally.
+                    resilience.
                 </p>
             </div>
             <div>
@@ -518,15 +1082,37 @@
                         <span class="skill-tag">MATLAB/Simulink</span>
                         <span class="skill-tag">ANSYS</span>
                         <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Power Electronics</span>
-                        <span class="skill-tag">Sustainability</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="experience" style="background: var(--bg-secondary);">
+    <section id="news" style="background: var(--bg-secondary);">
+        <h2>Latest News & Updates</h2>
+        <p class="section-subtitle">Recent achievements and milestones</p>
+        <div class="news-timeline">
+            <div class="news-item">
+                <div class="news-date">October 2025</div>
+                <h3>Completed Internship at Oak Ridge National Laboratory</h3>
+                <p>Successfully completed summer internship working on rare-earth-free electric motor design for sustainable transportation, contributing to DOE initiatives.</p>
+            </div>
+
+            <div class="news-item">
+                <div class="news-date">August 2024</div>
+                <h3>Awarded IEEE EAB Life Member Graduate Study Fellowship</h3>
+                <p>Honored to receive the IEEE Educational Activities Board Life Member Graduate Study Fellowship for 2024-2026, recognizing exceptional achievements in engineering.</p>
+            </div>
+
+            <div class="news-item">
+                <div class="news-date">January 2024</div>
+                <h3>Serving as Students & Young Professionals Chair</h3>
+                <p>Appointed as Chair for IEEE Dallas Section, organizing STEM events to promote engagement in the engineering community.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
         <h2>Experience</h2>
         <p class="section-subtitle">Building a sustainable energy future</p>
         <div class="experience-timeline">
@@ -534,10 +1120,9 @@
                 <h3>Graduate Research Intern</h3>
                 <p class="experience-meta">Oak Ridge National Laboratory | May - August 2025 | Knoxville, Tennessee</p>
                 <ul>
-                    <li>Contributed to the design and optimization of rare-earth-free electric motor technologies for medium and heavy-duty EVs (380kW, 5000-10,000 rpm), supporting DOE sustainable transportation initiatives</li>
+                    <li>Contributed to the design and optimization of rare-earth-free electric motor technologies for medium and heavy-duty EVs (380kW, 5000-10,000 rpm)</li>
                     <li>Conducted electromagnetic modeling, thermal analysis, and material benchmarking using ANSYS Maxwell, Fluent, and Workbench</li>
-                    <li>Authored extensive literature review and gap analysis on AI/ML applications in electric machine design and optimization</li>
-                    <li>Developed simulation workflows and design parameter trade-offs for OEM-focused motor design decisions</li>
+                    <li>Authored extensive literature review and gap analysis on AI/ML applications in electric machine design</li>
                 </ul>
             </div>
 
@@ -545,10 +1130,9 @@
                 <h3>Research & Teaching Assistant</h3>
                 <p class="experience-meta">Renewable Energy and Vehicular Technology Lab, UT Dallas | 2023 - Present</p>
                 <ul>
-                    <li>Supported research on grid-connected electric propulsion systems and lifecycle analysis modeling of power electronics</li>
-                    <li>Conducted literature reviews on power electronics, renewable energy, and electrified transportation technologies</li>
-                    <li>Documented experimental procedures and prepared research reports for conferences and seminars</li>
-                    <li>Teaching Assistant for ECE Fundamentals Lab covering transformers, power electronics, control systems</li>
+                    <li>Supported research on grid-connected electric propulsion systems and lifecycle analysis modeling</li>
+                    <li>Conducted literature reviews on power electronics, renewable energy, and electrified transportation</li>
+                    <li>Teaching Assistant for ECE Fundamentals Lab</li>
                 </ul>
             </div>
 
@@ -556,27 +1140,15 @@
                 <h3>Business and Fund Development Director</h3>
                 <p class="experience-meta">IEEE Smart Village | 2019 - 2022 | Hybrid</p>
                 <ul>
-                    <li>Secured over $100K in funding for solar microgrid projects across Africa through strategic proposal development</li>
-                    <li>Consulted on microgrid and EV integration projects supporting electrification in healthcare, agriculture, and tourism sectors</li>
-                    <li>Developed 13kW+ systems serving IT training hubs, irrigation farms, telehealth centers, and community facilities</li>
-                    <li>Led research on integrating electric vehicles into off-grid solar microgrids for sustainable mobility</li>
-                    <li>Managed project databases and improved operational reporting accuracy by 35%</li>
-                </ul>
-            </div>
-
-            <div class="experience-item">
-                <h3>Rural Projects Development Officer</h3>
-                <p class="experience-meta">Industrial Promotion Services (Aga Khan Development Network, AKDN) | Sept 2017 - Mar 2018</p>
-                <ul>
-                    <li>Conducted techno-economic analyses of solar microgrids assessing system cost, payback period, and ROI</li>
-                    <li>Performed energy audits and feasibility studies for renewable energy technologies and EV charging infrastructure</li>
-                    <li>Facilitated capacity-building support for agribusiness opportunities within the AKDN consortium</li>
+                    <li>Secured over $100K in funding for solar microgrid projects across Africa</li>
+                    <li>Developed 13kW+ systems serving IT training hubs, irrigation farms, and community facilities</li>
+                    <li>Led research on integrating electric vehicles into off-grid solar microgrids</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <section id="projects">
+    <section id="projects" style="background: var(--bg-secondary);">
         <h2>Research & Projects</h2>
         <p class="section-subtitle">Innovation in action</p>
         <div class="projects-grid">
@@ -584,7 +1156,7 @@
                 <div class="project-img">⚡</div>
                 <div class="project-content">
                     <h3>Flyback Converter for Solar Off-Grid Systems</h3>
-                    <p>Designed and simulated a step-up flyback converter for solar panels for off-grid electrification. Used MATLAB Simulink, PLECS, and LTSpice for modeling, voltage/current waveform analysis, efficiency calculations, and component sizing.</p>
+                    <p>Designed and simulated a step-up flyback converter using MATLAB Simulink, PLECS, and LTSpice.</p>
                     <div class="project-tags">
                         <span class="tag">Power Electronics</span>
                         <span class="tag">MATLAB</span>
@@ -596,13 +1168,12 @@
             <div class="project-card">
                 <div class="project-img">🔌</div>
                 <div class="project-content">
-                    <h3>Interior Permanent Magnet Synchronous Motor Design</h3>
-                    <p>Designed, simulated, and analyzed an IPMSM using Ansys Maxwell, Workbench, and Fluent to study electromagnetic, thermal, and structural behavior. Optimized magnet size using genetic algorithms for cost-effectiveness and sustainability.</p>
+                    <h3>IPMSM Motor Design & Optimization</h3>
+                    <p>Designed an Interior Permanent Magnet Synchronous Motor using Ansys and genetic algorithms.</p>
                     <div class="project-tags">
                         <span class="tag">Electric Machines</span>
                         <span class="tag">ANSYS</span>
                         <span class="tag">FEA</span>
-                        <span class="tag">Optimization</span>
                     </div>
                 </div>
             </div>
@@ -611,10 +1182,9 @@
                 <div class="project-img">🌍</div>
                 <div class="project-content">
                     <h3>Solar Microgrids for Rural Africa</h3>
-                    <p>Developed 13kW+ solar microgrid systems serving IT training hubs, irrigation farms, telehealth centers, and communities across Kenya, Cameroon, Tanzania, and Zambia. Impacted 5,000+ people through sustainable electrification.</p>
+                    <p>Developed 13kW+ systems impacting 5,000+ people across Kenya, Cameroon, Tanzania, and Zambia.</p>
                     <div class="project-tags">
                         <span class="tag">Microgrids</span>
-                        <span class="tag">Renewable Energy</span>
                         <span class="tag">Community Impact</span>
                     </div>
                 </div>
@@ -623,12 +1193,11 @@
             <div class="project-card">
                 <div class="project-img">🚗</div>
                 <div class="project-content">
-                    <h3>EV Integration with Off-Grid Solar Systems</h3>
-                    <p>Conducted research on integrating electric vehicles into off-grid solar microgrid systems in Cameroon. Explored sustainable mobility solutions and energy management strategies for rural transportation electrification.</p>
+                    <h3>EV Integration with Off-Grid Solar</h3>
+                    <p>Research on integrating electric vehicles into off-grid solar microgrids in Cameroon.</p>
                     <div class="project-tags">
                         <span class="tag">Electric Vehicles</span>
                         <span class="tag">Microgrids</span>
-                        <span class="tag">Energy Management</span>
                     </div>
                 </div>
             </div>
@@ -636,85 +1205,213 @@
             <div class="project-card">
                 <div class="project-img">🎓</div>
                 <div class="project-content">
-                    <h3>TechGaa Hub - Digital Education Initiative</h3>
-                    <p>Founded community-based organization promoting digital education in rural Kenya. Hosted 15+ expert interviews on electrification, emerging technologies, and climate solutions. Advocating for renewable energy and digital equity.</p>
+                    <h3>TechGaa Hub - Digital Education</h3>
+                    <p>Founded organization promoting digital education in rural Kenya through video content.</p>
                     <div class="project-tags">
                         <span class="tag">Education</span>
                         <span class="tag">Community Engagement</span>
-                        <span class="tag">Climate Action</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-img">💡</div>
-                <div class="project-content">
-                    <h3>IoT-Based Smart Energy Meter</h3>
-                    <p>Developed an IoT-based electric smart meter with integrated cost-efficient monitoring system for energy use as undergraduate final project. Focused on real-time energy tracking and optimization for residential applications.</p>
-                    <div class="project-tags">
-                        <span class="tag">IoT</span>
-                        <span class="tag">Energy Management</span>
-                        <span class="tag">Smart Grid</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="awards" style="background: var(--bg-secondary);">
-        <h2>Awards & Recognition</h2>
-        <p class="section-subtitle">Honored for leadership and impact</p>
-        <div class="awards-grid">
-            <div class="award-card">
-                <div class="award-icon">🏆</div>
-                <h3>IEEE EAB Life Member Graduate Study Fellowship</h3>
-                <p>IEEE Educational Activities Board</p>
-                <p style="color: var(--text-light); margin-top: 0.5rem;">2024 - 2026</p>
-                <p style="margin-top: 1rem; font-size: 0.95rem;">Recognizing exceptional achievements in the engineering community and commitment to advancing the profession.</p>
+    </section>
+
+    <section id="achievements" style="background: var(--bg-secondary);">
+        <h2>Achievements & Activities</h2>
+        <p class="section-subtitle">News, conferences, awards, and highlights</p>
+        
+        <div class="tabs-container">
+            <div class="tabs">
+                <button class="tab-btn active" onclick="openTab(event, 'news-tab')">📰 News & Updates</button>
+                <button class="tab-btn" onclick="openTab(event, 'conferences-tab')">🎤 Conferences</button>
+                <button class="tab-btn" onclick="openTab(event, 'awards-tab')">🏆 Awards & Honors</button>
+                <button class="tab-btn" onclick="openTab(event, 'gallery-tab')">📸 Photo Gallery</button>
             </div>
 
-            <div class="award-card">
-                <div class="award-icon">⭐</div>
-                <h3>IEEE WiE Inspiring Member of the Year</h3>
-                <p>IEEE Women in Engineering</p>
-                <p style="color: var(--text-light); margin-top: 0.5rem;">2021</p>
-                <p style="margin-top: 1rem; font-size: 0.95rem;">Honorable mention for empowering rural communities through electrification to achieve socioeconomic sustainability.</p>
+            <!-- News Tab -->
+            <div id="news-tab" class="tab-content active">
+                <div class="news-timeline">
+                    <div class="news-item">
+                        <div class="news-date">October 2025</div>
+                        <h3>Completed Internship at Oak Ridge National Laboratory</h3>
+                        <p>Successfully completed summer internship working on rare-earth-free electric motor design for sustainable transportation, contributing to DOE initiatives.</p>
+                    </div>
+
+                    <div class="news-item">
+                        <div class="news-date">August 2024</div>
+                        <h3>Awarded IEEE EAB Life Member Graduate Study Fellowship</h3>
+                        <p>Honored to receive the IEEE Educational Activities Board Life Member Graduate Study Fellowship for 2024-2026, recognizing exceptional achievements in engineering.</p>
+                    </div>
+
+                    <div class="news-item">
+                        <div class="news-date">January 2024</div>
+                        <h3>Serving as Students & Young Professionals Chair</h3>
+                        <p>Appointed as Chair for IEEE Dallas Section, organizing STEM events to promote engagement in the engineering community.</p>
+                    </div>
+
+                    <!-- Add more news items here -->
+                </div>
             </div>
 
-            <div class="award-card">
-                <div class="award-icon">🌟</div>
-                <h3>IEEE WiE Clementina Saduwa Award</h3>
-                <p>IEEE Women in Engineering</p>
-                <p style="color: var(--text-light); margin-top: 0.5rem;">2019</p>
-                <p style="margin-top: 1rem; font-size: 0.95rem;">For noteworthy support for women in the engineering profession and dedication to promoting diversity in STEM.</p>
+            <!-- Conferences Tab -->
+            <div id="conferences-tab" class="tab-content">
+                <div class="experience-timeline">
+                    <div class="experience-item">
+                        <h3>IEEE Power & Energy Society General Meeting</h3>
+                        <p class="experience-meta">Location | Month Year | Role: Presenter/Attendee</p>
+                        <p>
+                            Presented research on [topic]. Networked with leading experts in renewable energy and 
+                            electric propulsion systems. Key takeaways included...
+                        </p>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3>International Conference on Electric Vehicles</h3>
+                        <p class="experience-meta">Location | Month Year | Role: Presenter/Attendee</p>
+                        <p>
+                            Participated in sessions on sustainable transportation and EV infrastructure development. 
+                            Presented poster on [research topic].
+                        </p>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3>IEEE PowerAfrica Conference</h3>
+                        <p class="experience-meta">Location | 2020-2021 | Role: Local Organizing Chair (2020), Publicity Chair (2021)</p>
+                        <p>
+                            Led organizing efforts for conference with 350 attendees from the global engineering community. 
+                            Coordinated publicity and marketing strategies.
+                        </p>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3>Renewable Energy Conference Name</h3>
+                        <p class="experience-meta">Location | Month Year | Role: Attendee</p>
+                        <p>
+                            Attended workshops on microgrid technologies and renewable energy integration. Gained insights 
+                            into latest developments in the field.
+                        </p>
+                    </div>
+
+                    <!-- Add your conferences here -->
+                </div>
             </div>
-        </div>
 
-        <div style="margin-top: 4rem;">
-            <h3 style="text-align: center; color: var(--primary); margin-bottom: 2rem;">Leadership & Volunteering</h3>
-            <div class="experience-timeline">
-                <div class="experience-item">
-                    <h3>PES Climate Change & Sustainability Member at Large</h3>
-                    <p class="experience-meta">IEEE Power & Energy Society | 2023 - 2024</p>
-                    <p>Led committee initiatives focused on sustainable energy and climate action, driving projects to mitigate climate change impacts.</p>
+            <!-- Awards Tab -->
+            <div id="awards-tab" class="tab-content">
+                <div class="awards-grid">
+                    <div class="award-card">
+                        <div class="award-icon">🏆</div>
+                        <h3>IEEE EAB Life Member Graduate Study Fellowship</h3>
+                        <p>IEEE Educational Activities Board</p>
+                        <p style="color: var(--text-light); margin-top: 0.5rem;">2024 - 2026</p>
+                        <p style="margin-top: 1rem; font-size: 0.95rem;">Recognizing exceptional achievements in the engineering community.</p>
+                    </div>
+
+                    <div class="award-card">
+                        <div class="award-icon">⭐</div>
+                        <h3>IEEE WiE Inspiring Member of the Year</h3>
+                        <p>IEEE Women in Engineering</p>
+                        <p style="color: var(--text-light); margin-top: 0.5rem;">2021</p>
+                        <p style="margin-top: 1rem; font-size: 0.95rem;">For empowering rural communities through electrification.</p>
+                    </div>
+
+                    <div class="award-card">
+                        <div class="award-icon">🌟</div>
+                        <h3>IEEE WiE Clementina Saduwa Award</h3>
+                        <p>IEEE Women in Engineering</p>
+                        <p style="color: var(--text-light); margin-top: 0.5rem;">2019</p>
+                        <p style="margin-top: 1rem; font-size: 0.95rem;">For support of women in the engineering profession.</p>
+                    </div>
                 </div>
 
-                <div class="experience-item">
-                    <h3>Global Chair, IEEE PES Day</h3>
-                    <p class="experience-meta">IEEE Power & Energy Society | 2022</p>
-                    <p>Led 700 volunteers from 52 countries and 72 sections to conduct educational activities promoting power and energy engineering worldwide.</p>
-                </div>
+                <div style="margin-top: 4rem;">
+                    <h3 style="text-align: center; color: var(--primary); margin-bottom: 2rem; font-weight: 600;">Leadership & Volunteering</h3>
+                    <div class="experience-timeline">
+                        <div class="experience-item">
+                            <h3>PES Climate Change & Sustainability Member at Large</h3>
+                            <p class="experience-meta">IEEE Power & Energy Society | 2023 - 2024</p>
+                            <p>Led committee initiatives focused on sustainable energy and climate action.</p>
+                        </div>
 
-                <div class="experience-item">
-                    <h3>Students & Young Professionals Chair</h3>
-                    <p class="experience-meta">IEEE Dallas Section | 2024 - Present</p>
-                    <p>Organizing STEM events to promote engagement in the professional and academic engineering community.</p>
-                </div>
+                        <div class="experience-item">
+                            <h3>Global Chair, IEEE PES Day</h3>
+                            <p class="experience-meta">IEEE Power & Energy Society | 2022</p>
+                            <p>Led 700 volunteers from 52 countries conducting educational activities worldwide.</p>
+                        </div>
 
-                <div class="experience-item">
-                    <h3>IEEE Smart Village Marketing Committee Chair</h3>
-                    <p class="experience-meta">IEEE Smart Village | 2020 - 2022</p>
-                    <p>Improved project visibility by 300%. Managed comprehensive databases for 35+ projects, monitoring impact and fundraising efforts.</p>
+                        <div class="experience-item">
+                            <h3>Students & Young Professionals Chair</h3>
+                            <p class="experience-meta">IEEE Dallas Section | 2024 - Present</p>
+                            <p>Organizing STEM events to promote engagement in the engineering community.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Tab -->
+            <div id="gallery-tab" class="tab-content">
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <div class="gallery-img">
+                            <!-- <img src="photo1.jpg" alt="Description"> -->
+                            📸
+                        </div>
+                        <div class="gallery-caption">
+                            Solar Microgrid Project in Kenya
+                        </div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <div class="gallery-img">
+                            <!-- <img src="photo2.jpg" alt="Description"> -->
+                            📸
+                        </div>
+                        <div class="gallery-caption">
+                            Oak Ridge National Laboratory Internship
+                        </div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <div class="gallery-img">
+                            <!-- <img src="photo3.jpg" alt="Description"> -->
+                            📸
+                        </div>
+                        <div class="gallery-caption">
+                            IEEE Conference Presentation
+                        </div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <div class="gallery-img">
+                            <!-- <img src="photo4.jpg" alt="Description"> -->
+                            📸
+                        </div>
+                        <div class="gallery-caption">
+                            Community Electrification Project
+                        </div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <div class="gallery-img">
+                            <!-- <img src="photo5.jpg" alt="Description"> -->
+                            📸
+                        </div>
+                        <div class="gallery-caption">
+                            Lab Research Work
+                        </div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <div class="gallery-img">
+                            <!-- <img src="photo6.jpg" alt="Description"> -->
+                            📸
+                        </div>
+                        <div class="gallery-caption">
+                            Team Collaboration
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -724,54 +1421,77 @@
         <h2>Get In Touch</h2>
         <p class="section-subtitle">Let's collaborate on sustainable energy solutions</p>
         <div class="contact-content">
-            <p style="text-align: center; margin-bottom: 2rem;">
-                I'm always open to discussing research collaborations, speaking opportunities, consulting projects, 
-                or career opportunities in renewable energy, electric vehicles, and sustainable technology. 
-                Let's connect and create positive impact together!
-            </p>
-            <div class="contact-links">
-                <a href="mailto:mercykoech@utdallas.edu" class="contact-link">
-                    <span class="contact-icon">📧</span>
-                    <div>
-                        <strong>Email (Primary)</strong><br>
-                        <small>mercy.koech@utdallas.edu</small>
+            <div class="contact-grid">
+                <div class="contact-form">
+                    <h3 style="color: var(--primary); margin-bottom: 1.5rem;">Send Me a Message</h3>
+                    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+
+                <div>
+                    <h3 style="color: var(--primary); margin-bottom: 1.5rem;">Connect With Me</h3>
+                    <div class="contact-links">
+                        <a href="mailto:mercy.koech@utdallas.edu" class="contact-link">
+                            <span class="contact-icon">📧</span>
+                            <div>
+                                <strong>Email (Primary)</strong><br>
+                                <small>mercykoech@utdallas.edu</small>
+                            </div>
+                        </a>
+                        <a href="mailto:chelangat_ke@ieee.org" class="contact-link">
+                            <span class="contact-icon">📧</span>
+                            <div>
+                                <strong>IEEE Email</strong><br>
+                                <small>chelangat_ke@ieee.org</small>
+                            </div>
+                        </a>
+                        <a href="https://www.linkedin.com/in/mkoech" target="_blank" class="contact-link">
+                            <span class="contact-icon">💼</span>
+                            <div>
+                                <strong>LinkedIn</strong><br>
+                                <small>linkedin.com/in/mkoech</small>
+                            </div>
+                        </a>
+                        <a href="https://twitter.com/chelah_reez" target="_blank" class="contact-link">
+                            <span class="contact-icon">🐦</span>
+                            <div>
+                                <strong>Twitter</strong><br>
+                                <small>@chelah_reez</small>
+                            </div>
+                        </a>
+                        <a href="https://www.facebook.com/mercy.w.chelangat" target="_blank" class="contact-link">
+                            <span class="contact-icon">👥</span>
+                            <div>
+                                <strong>Facebook</strong><br>
+                                <small>mercy.w.chelangat</small>
+                            </div>
+                        </a>
+                        <a href="https://labs.utdallas.edu/revt/" target="_blank" class="contact-link">
+                            <span class="contact-icon">🔬</span>
+                            <div>
+                                <strong>Research Lab</strong><br>
+                                <small>UT Dallas REVT Lab</small>
+                            </div>
+                        </a>
                     </div>
-                </a>
-                <a href="mailto:chelangat_ke@ieee.org" class="contact-link">
-                    <span class="contact-icon">📧</span>
-                    <div>
-                        <strong>IEEE Email</strong><br>
-                        <small>chelangat_ke@ieee.org</small>
-                    </div>
-                </a>
-                <a href="https://www.linkedin.com/in/mkoech" target="_blank" class="contact-link">
-                    <span class="contact-icon">💼</span>
-                    <div>
-                        <strong>LinkedIn</strong><br>
-                        <small>linkedin.com/in/mkoech</small>
-                    </div>
-                </a>
-                <a href="https://www.facebook.com/mercy.w.chelangat" target="_blank" class="contact-link">
-                    <span class="contact-icon">👥</span>
-                    <div>
-                        <strong>Facebook</strong><br>
-                        <small>mercy.w.chelangat</small>
-                    </div>
-                </a>
-                <a href="https://twitter.com/chelah_reez" target="_blank" class="contact-link">
-                    <span class="contact-icon">🐦</span>
-                    <div>
-                        <strong>Twitter</strong><br>
-                        <small>@chelah_reez</small>
-                    </div>
-                </a>
-                <a href="https://labs.utdallas.edu/revt/" target="_blank" class="contact-link">
-                    <span class="contact-icon">🔬</span>
-                    <div>
-                        <strong>Research Lab</strong><br>
-                        <small>UT Dallas REVT Lab</small>
-                    </div>
-                </a>
+                </div>
             </div>
         </div>
     </section>
@@ -782,9 +1502,58 @@
     </footer>
 
     <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const menu = document.getElementById('nav-menu');
+            menu.classList.toggle('active');
+        }
+
+        // Tab Switching Function
+        function openTab(event, tabId) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Remove active class from all buttons
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            tabButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Show selected tab and mark button as active
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        // Dark Mode Toggle
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            const btn = document.querySelector('.theme-toggle');
+            btn.textContent = newTheme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
+        }
+
+        // Load saved theme
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            const btn = document.querySelector('.theme-toggle');
+            btn.textContent = savedTheme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
+        });
+
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
+                const menu = document.getElementById('nav-menu');
+                menu.classList.remove('active');
+                
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     target.scrollIntoView({
@@ -795,6 +1564,7 @@
             });
         });
 
+        // Active navigation
         window.addEventListener('scroll', () => {
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('nav a');
@@ -814,6 +1584,28 @@
                     link.style.color = 'var(--primary)';
                 }
             });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.experience-item, .project-card, .award-card, .news-item, .publication-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
         });
     </script>
 </body>
